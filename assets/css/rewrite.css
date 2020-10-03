@@ -1,0 +1,17 @@
+#emoji {
+    font-size: 32px;
+    margin-top: -15px;
+    position: absolute;
+}
+main .time-line-item:nth-child(2n)::after {
+    background-color: #979797;;
+}
+aside .widget {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 5px;
+    padding: 11px 5px;
+}
+main .resume-section {
+    margin-top: 47px;
+}
