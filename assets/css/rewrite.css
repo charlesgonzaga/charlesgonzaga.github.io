@@ -3,18 +3,34 @@
     margin-top: -15px;
     position: absolute;
 }
+
+main .time-line-item-title {
+    font-size: 14px;
+}
+
+main .time-line-item-content {
+    font-size: 12px;
+}
+
+main .time-line-item.first::after {
+    background-color: #0067f6;;
+}
+
 main .time-line-item:nth-child(2n)::after {
     background-color: #979797;;
 }
+
 aside .widget {
     text-align: center;
     margin-top: 0;
     margin-bottom: 5px;
     padding: 11px 5px;
 }
+
 main .resume-section {
     margin-top: 47px;
 }
+
 main .services-section {
     text-align: center;
 }
