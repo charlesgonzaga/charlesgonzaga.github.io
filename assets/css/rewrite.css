@@ -34,3 +34,27 @@ main .resume-section {
 main .services-section {
     text-align: center;
 }
+
+main .section-title {
+    font-size: 21px;
+    line-height: 1;
+    font-weight: bolder;
+    text-transform: uppercase;
+    margin-bottom: 2.125rem;
+    text-decoration: underline;
+}
+
+.badge-black {
+    background-color: #000;
+    color: #fff;
+}
+
+.badge-default {
+    background-color: #9dc6ff;
+    color: #fff;
+}
+
+.badge-yellowgreen {
+    background-color: yellowgreen;
+    color: #fff;
+}
