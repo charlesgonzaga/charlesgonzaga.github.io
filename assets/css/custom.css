@@ -1,0 +1,623 @@
+#emoji {
+    font-size: 32px;
+    margin-top: -15px;
+    position: absolute;
+}
+
+main .time-line-item-title {
+    font-size: 14px;
+}
+
+main .time-line-item-content {
+    font-size: 12px;
+}
+
+main .time-line-item.first::after {
+    background-color: #0067f6;
+}
+
+main .time-line-item:nth-child(2n)::after {
+    background-color: #979797;
+}
+
+aside .widget {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 5px;
+    padding: 11px 5px;
+}
+
+main .resume-section {
+    margin-top: 47px;
+}
+
+main .services-section {
+    text-align: center;
+}
+
+/* Estilos para Certificações */
+.certificacoes-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 50%;
+    margin: 0 auto;
+}
+
+.certificacao-item {
+    background-color: #f8f9fa;
+    border-left: 4px solid #0067f6;
+    padding: 15px 20px;
+    border-radius: 5px;
+    text-align: left;
+    transition: box-shadow 0.3s ease;
+}
+
+.certificacao-item:hover {
+    box-shadow: 0 2px 8px rgba(0, 103, 246, 0.15);
+}
+
+.certificacao-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.certificacao-nome {
+    font-weight: 600;
+    font-size: 14px;
+    color: #000;
+    flex: 1;
+    min-width: 200px;
+}
+
+.certificacao-data {
+    font-size: 12px;
+    color: #666;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.certificacao-empresa {
+    font-size: 12px;
+    color: #0067f6;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.certificacao-competencias {
+    font-size: 11px;
+    color: #666;
+    font-style: italic;
+}
+
+main .section-title {
+    font-size: 21px;
+    line-height: 1;
+    font-weight: bolder;
+    text-transform: uppercase;
+    margin-bottom: 2.125rem;
+    text-decoration: underline;
+}
+
+.badge-black {
+    background-color: #000;
+    color: #fff;
+}
+
+.badge-default {
+    background-color: #9dc6ff;
+    color: #fff;
+}
+
+.badge-yellowgreen {
+    background-color: yellowgreen;
+    color: #fff;
+}
+
+.badge-info {
+    background-color: #17a2b8;
+    color: #fff;
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 16px 20px;
+    background-color: #f3f3f3;
+}
+
+#download-pdf-btn {
+    background-color: #0067f6;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.3px;
+    transition: all 0.2s ease;
+    margin-top: 10px;
+    box-shadow: 0 1px 3px rgba(0, 103, 246, 0.2);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+    outline: none;
+}
+
+#download-pdf-btn:hover:not(:disabled) {
+    background-color: #0056d6;
+    box-shadow: 0 2px 6px rgba(0, 103, 246, 0.3);
+    transform: translateY(-1px);
+}
+
+#download-pdf-btn:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: 0 1px 3px rgba(0, 103, 246, 0.2);
+}
+
+#download-pdf-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+#download-pdf-btn i {
+    font-size: 14px;
+}
+
+/* Estilos para impressão/PDF - Layout profissional */
+@media print {
+    @page {
+        margin: 15mm 15mm;
+        size: A4;
+    }
+    
+    * {
+        box-sizing: border-box;
+    }
+    
+    body {
+        padding: 0 !important;
+        margin: 0 !important;
+        font-size: 11pt;
+        line-height: 1.5;
+        color: #000 !important;
+        background: #fff !important;
+    }
+    
+    /* Ocultar elementos desnecessários */
+    header {
+        display: none !important;
+    }
+    
+    #download-pdf-btn {
+        display: none !important;
+    }
+    
+    .social-links {
+        display: none !important;
+    }
+    
+    footer {
+        display: none !important;
+    }
+    
+    /* Layout principal */
+    .content-wrapper {
+        max-width: 100% !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: block !important;
+        background: #fff !important;
+    }
+    
+    /* Cabeçalho compacto com informações pessoais */
+    aside {
+        width: 100% !important;
+        max-width: 100% !important;
+        float: none !important;
+        margin: 0 0 20px 0 !important;
+        padding: 15px 0 !important;
+        page-break-inside: avoid;
+        border-bottom: 2px solid #000 !important;
+        padding-bottom: 15px !important;
+    }
+    
+    aside .profile-img-wrapper {
+        display: none !important;
+    }
+    
+    aside .profile-name {
+        font-size: 24pt !important;
+        font-weight: 700 !important;
+        margin: 0 0 5px 0 !important;
+        text-align: center !important;
+        color: #000 !important;
+    }
+    
+    aside .profile-designation {
+        font-size: 12pt !important;
+        margin: 0 0 10px 0 !important;
+        text-align: center !important;
+        display: block !important;
+    }
+    
+    aside .widget {
+        margin: 8px 0 !important;
+        padding: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+        background: transparent !important;
+        text-align: left !important;
+    }
+    
+    /* Títulos dos widgets em preto e branco por padrão */
+    aside .widget-title {
+        font-size: 10pt !important;
+        font-weight: 600 !important;
+        margin-bottom: 5px !important;
+        color: #000 !important;
+        text-transform: uppercase !important;
+    }
+    
+    /* Manter cor azul apenas nos títulos "INFORMAÇÕES E CONTATOS" e "LÍNGUAS" */
+    aside .widget:first-of-type .widget-title,
+    aside .widget:nth-of-type(2) .widget-title {
+        color: #0067f6 !important;
+    }
+    
+    aside .widget-content {
+        font-size: 10pt !important;
+        margin: 0 !important;
+    }
+    
+    aside .widget-content p {
+        margin: 2px 0 !important;
+        line-height: 1.4 !important;
+    }
+    
+    /* Organizar widgets do aside em linha horizontal compacta */
+    aside .widget.card {
+        display: inline-block !important;
+        width: 32% !important;
+        vertical-align: top !important;
+        margin-right: 1% !important;
+        margin-bottom: 10px !important;
+    }
+    
+    aside .widget.card:last-child {
+        display: none !important; /* Ocultar botão de download */
+    }
+    
+    /* Conteúdo principal */
+    main {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 5mm !important;
+        float: none !important;
+        background: #fff !important;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Seção Sobre Mim */
+    .intro-section {
+        margin: 0 0 25px 0 !important;
+        padding: 0 !important;
+        page-break-inside: avoid;
+    }
+    
+    .intro-section .section-title {
+        font-size: 16pt !important;
+        font-weight: 700 !important;
+        margin: 0 0 10px 0 !important;
+        padding-bottom: 5px !important;
+        border-bottom: 1px solid #ddd !important;
+        text-transform: uppercase !important;
+    }
+    
+    .intro-section p {
+        font-size: 11pt !important;
+        line-height: 1.6 !important;
+        margin: 0 !important;
+        text-align: justify !important;
+    }
+    
+    /* Seção de Experiência e Educação */
+    .resume-section {
+        margin: 0 0 25px 0 !important;
+        padding: 0 !important;
+    }
+    
+    #resume-row {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        margin: 0 !important;
+    }
+    
+    #educacao-col {
+        order: 1 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: 0 0 auto !important;
+        margin: 0 0 25px 0 !important;
+        padding: 0 !important;
+        page-break-inside: avoid;
+    }
+    
+    #experiencia-col {
+        order: 2 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: 0 0 auto !important;
+        padding: 0 5mm !important;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
+    }
+    
+    .section-title {
+        font-size: 16pt !important;
+        font-weight: 700 !important;
+        margin: 0 0 15px 0 !important;
+        padding-bottom: 5px !important;
+        border-bottom: 1px solid #ddd !important;
+        text-transform: uppercase !important;
+        page-break-after: avoid;
+    }
+    
+    /* Timeline de experiências */
+    .time-line {
+        list-style: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    .time-line-item {
+        margin: 0 0 18px 0 !important;
+        padding: 0 0 15px 0 !important;
+        border-left: 2px solid #000 !important;
+        padding-left: 15px !important;
+        padding-right: 0 !important;
+        page-break-inside: avoid;
+        position: relative;
+        max-width: 100% !important;
+        width: 100% !important;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
+    }
+    
+    .time-line-item::before {
+        content: '';
+        position: absolute;
+        left: -6px;
+        top: 0;
+        width: 10px;
+        height: 10px;
+        background: #000 !important;
+        border-radius: 50%;
+    }
+    
+    .time-line-item-title {
+        font-size: 12pt !important;
+        font-weight: 600 !important;
+        margin: 0 0 5px 0 !important;
+        color: #000 !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    .time-line-item-content {
+        font-size: 10pt !important;
+        line-height: 1.5 !important;
+        margin: 0 !important;
+        text-align: justify !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    .time-line-item-content p,
+    .time-line-item-content strong {
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        max-width: 100% !important;
+    }
+    
+    /* Seção de Competências */
+    .services-section {
+        margin: 0 0 25px 0 !important;
+        padding: 0 !important;
+        page-break-inside: avoid;
+    }
+    
+    .service-card {
+        margin: 0 0 12px 0 !important;
+        padding: 0 !important;
+        background: transparent !important;
+        border: none !important;
+        border-top: none !important;
+        border-bottom: none !important;
+        border-left: none !important;
+        border-right: none !important;
+        box-shadow: none !important;
+    }
+    
+    .media {
+        border: none !important;
+        border-top: none !important;
+        border-bottom: none !important;
+    }
+    
+    .media-body {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 8px !important;
+        justify-content: center !important;
+        background: transparent !important;
+        border: none !important;
+    }
+    
+    .badge {
+        display: inline-block !important;
+        padding: 5px 12px !important;
+        margin: 3px !important;
+        font-size: 9pt !important;
+        font-weight: 500 !important;
+        border-radius: 15px !important;
+        page-break-inside: avoid;
+    }
+    
+    /* Certificações para impressão */
+    .certificacoes-container {
+        display: block !important;
+        margin: 0 !important;
+    }
+    
+    .certificacao-item {
+        background: transparent !important;
+        border-left: 3px solid #000 !important;
+        padding: 10px 15px !important;
+        margin-bottom: 12px !important;
+        page-break-inside: avoid;
+        border-radius: 0 !important;
+    }
+    
+    .certificacao-header {
+        display: flex !important;
+        justify-content: space-between !important;
+        margin-bottom: 5px !important;
+    }
+    
+    .certificacao-nome {
+        font-size: 11pt !important;
+        font-weight: 600 !important;
+        flex: 1 !important;
+    }
+    
+    .certificacao-data {
+        font-size: 9pt !important;
+        color: #000 !important;
+        white-space: nowrap !important;
+        margin-left: 10px !important;
+    }
+    
+    .certificacao-empresa {
+        font-size: 10pt !important;
+        color: #000 !important;
+        margin-bottom: 3px !important;
+    }
+    
+    .certificacao-competencias {
+        font-size: 9pt !important;
+        color: #000 !important;
+    }
+    
+    /* Garantir que imagens não ultrapassem */
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+    
+    /* Remover cores de fundo e sombras */
+    * {
+        background: transparent !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    
+    /* Exceção: badges devem ter fundo preto */
+    .badge,
+    .badge-black,
+    .badge-warning,
+    .badge-yellowgreen,
+    .badge-default,
+    .badge-success,
+    .badge-info,
+    .badge-white {
+        background-color: #000 !important;
+        background: #000 !important;
+        color: #fff !important;
+        border: 1px solid #000 !important;
+    }
+    
+    /* Links */
+    a {
+        color: #000 !important;
+        text-decoration: underline !important;
+    }
+    
+    /* Quebras de página inteligentes */
+    .intro-section,
+    .resume-section,
+    .services-section {
+        page-break-inside: avoid;
+    }
+    
+    .time-line-item {
+        orphans: 3;
+        widows: 3;
+    }
+
+    /* Permite quebras dentro das seções */
+    .resume-section,
+    section {
+        break-inside: auto !important;
+        page-break-inside: auto !important;
+        page-break-before: auto !important;
+        page-break-after: auto !important;
+    }
+
+    /* Zera qualquer grid/flex usado no layout */
+    .container,
+    .content,
+    main,
+    .resume-section-wrapper {
+        display: block !important;
+    }
+
+    /* Remove alturas mínimas que empurram conteúdo */
+    * {
+        min-height: 0 !important;
+    }
+}
+
+/* Estilos quando estiver preparando para impressão */
+body.printing-pdf #resume-row {
+    display: flex;
+    flex-direction: column;
+}
+
+body.printing-pdf #educacao-col {
+    order: 1;
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 auto !important;
+    margin-bottom: 20px;
+}
+
+body.printing-pdf #experiencia-col {
+    order: 2;
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 auto !important;
+}
