@@ -1,60 +1,88 @@
-$('[data-toggle="collapsible-nav"]').on('click', function(e){
-    var target = ($(this).data('target'));
-    $('#' + target).toggleClass('show');
-});
+document.addEventListener('DOMContentLoaded', () => {
+    // Inicialização do GSAP
+    gsap.registerPlugin(ScrollTrigger);
 
-$(document).ready(function(){
-    if(window.innerWidth >= 992) {
-        $('#collapsible-nav').addClass('show');  //Show navigation menu in bigger screens by default.
-    } else {
-        $('#collapsible-nav').removeClass('show');
-    }
+    // Efeito de Digitação do Terminal
+    const terminalBody = document.querySelector('.terminal-body');
+    const heroContent = document.querySelector('.profile-intro');
 
-    if ($('.hover-box').length) {
-        setHoverBoxPerspective();
-    }
-});
+    const lines = [
+        "> INITIALIZING CHARLES_GONZAGA_SYSTEM.EXE...",
+        "> ACCESSING CORE_ARCHITECT_MODULE...",
+        "> STATUS: AI RESEARCH & DEVELOPMENT READY",
+        "> LOCATION: SANTA CATARINA, BRAZIL",
+        "> WELCOME, USER."
+    ];
 
-$(window).resize(
-    function() {
-        if ($('.hover-box').length) {
-            setHoverBoxPerspective();
+    let currentLine = 0;
+    let currentChar = 0;
+
+    function typeLine() {
+        if (currentLine < lines.length) {
+            if (currentChar < lines[currentLine].length) {
+                terminalBody.innerHTML += lines[currentLine][currentChar];
+                currentChar++;
+                setTimeout(typeLine, 30);
+            } else {
+                terminalBody.innerHTML += "<br>";
+                currentLine++;
+                currentChar = 0;
+                setTimeout(typeLine, 500);
+            }
+        } else {
+            // Revelar o restante da hero section
+            gsap.to(heroContent, {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: "power2.out"
+            });
         }
     }
-);
 
-function setHoverBoxPerspective() {
-    $('.hover-box').css({
-        'perspective': function () {
-            return Math.max( $(this).width(), $(this).height() ) * 2 + 50;
+    setTimeout(typeLine, 1000);
+
+    // Fallback de visibilidade para o conteúdo do herói (7 segundos)
+    setTimeout(() => {
+        if (heroContent.style.opacity === "0" || heroContent.style.opacity === "") {
+            gsap.to(heroContent, { opacity: 1, y: 0, duration: 1 });
         }
+    }, 7000);
+
+    // Animações de Scroll mais robustas
+    const animateElements = document.querySelectorAll('.section-title, .glass, .timeline-item, .skill-tag, .cert-card');
+
+    animateElements.forEach(el => {
+        gsap.from(el, {
+            scrollTrigger: {
+                trigger: el,
+                start: "top 90%",
+                toggleActions: "play none none none"
+            },
+            y: 30,
+            opacity: 0,
+            duration: 0.6,
+            ease: "power2.out"
+        });
     });
-}
 
-
-var classNames = ['in-up', 'in-right', 'in-down', 'in-left', 'out-up', 'out-right', 'out-down', 'out-left']; // Animation classes.
-
-$('.hover-box').hover(
-    function (event) {
-        var direction = "up";
-        if(jQuery.fn.entry){ //Check if entry js file is loaded.
-            direction = $(this).entry({ e: event }); // Get mouse in direction.
-        }
-
-        $(this).removeClass(classNames.join(" ")); // Remove existing animation classes.
-        $(this).addClass("in-" + direction); //Add mouse in animation
-
-    }, 
-    
-    function (event) {
-
-        var direction = "up";
-        if(jQuery.fn.entry){
-            direction = $(this).entry({ e: event }); // Get mouse out direction.
-        }
-
-        $(this).removeClass(classNames.join(" "));
-        $(this).addClass("out-" + direction); //Add mouse out animation
-
+    // Efeito Hover 3D nos cards (opcional, apenas para desktop)
+    const cards = document.querySelectorAll('.glass');
+    if (window.innerWidth > 1024) {
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 30;
+                const rotateY = (centerX - x) / 30;
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
+            });
+        });
     }
-);
+});
